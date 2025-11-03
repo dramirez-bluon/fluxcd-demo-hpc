@@ -10,7 +10,7 @@ metadata:
   namespace: dev
 data:
   provider: gcp
-  address: 34.68.82.149
+  cluster: projects/dev-snowplow-2/locations/<location>/clusters/dev
   serviceAccountName: central-auth-dev
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1
