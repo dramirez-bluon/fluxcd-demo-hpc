@@ -35,35 +35,35 @@ spec:
   #postBuild:
   #  substitute:
   #    CLUSTER_NAME: dev
-#---
-#apiVersion: kustomize.toolkit.fluxcd.io/v1
-#kind: Kustomization
-#metadata:
-#  name: apps
-#  namespace: dev
-#spec:
-#  #dependsOn:
-#  #  - name: infra-configs
-#  targetNamespace: dev
-#  interval: 1h
-#  retryInterval: 3m
-#  timeout: 5m
-#  prune: true
-#  wait: true
-#  path: ./clusters/dev/apps
-#  sourceRef:
-#    kind: GitRepository
-#    name: flux-system
-#    namespace: flux-system
-#  patches:
-#    - target:
-#        kind: HelmRelease
-#      patch: |
-#        - op: add
-#          path: /spec/kubeConfig
-#          value:
-#            configMapRef:
-#              name: kubeconfig
-#        - op: add
-#          path: /spec/serviceAccountName
-#          value: flux-restricted
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: apps
+  namespace: dev
+spec:
+  #dependsOn:
+  #  - name: infra-configs
+  targetNamespace: dev
+  interval: 1h
+  retryInterval: 3m
+  timeout: 5m
+  prune: true
+  wait: true
+  path: ./clusters/dev/apps
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+    namespace: flux-system
+  patches:
+    - target:
+        kind: HelmRelease
+      patch: |
+        - op: add
+          path: /spec/kubeConfig
+          value:
+            configMapRef:
+              name: kubeconfig
+        - op: add
+          path: /spec/serviceAccountName
+          value: flux-restricted
