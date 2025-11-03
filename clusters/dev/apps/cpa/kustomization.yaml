@@ -1,7 +1,7 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - cpa
+  - app.yaml
   - ../../../../deploy/apps
 patches:
   - path: podinfo-values.yaml
