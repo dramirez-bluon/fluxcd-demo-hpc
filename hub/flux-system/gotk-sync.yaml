@@ -11,7 +11,7 @@ spec:
     branch: main
   secretRef:
     name: flux-system
-  url: ssh://git@github.com/dramirez-bluon/flux2-hub-spoke-example-original
+  url: ssh://git@github.com/dramirez-bluon/fluxcd-demo-hpc
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
