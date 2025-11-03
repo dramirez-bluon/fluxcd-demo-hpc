@@ -1,0 +1,7 @@
+global:
+  appName: example-app
+  namespace: default
+
+configs: null
+
+enabled: false
