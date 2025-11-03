@@ -3,6 +3,16 @@ kind: Namespace
 metadata:
   name: dev
 ---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: kubeconfig
+  namespace: dev
+data:
+  provider: gcp
+  address: 34.68.82.149
+  serviceAccountName: central-auth-dev
+---
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
@@ -20,10 +30,8 @@ spec:
     name: flux-system
     namespace: flux-system
   kubeConfig:
-    data:
-      provider: gcp
-      address: 34.68.82.149
-      serviceAccountName: central-auth-dev
+    configMapRef:
+      name: kubeconfig
   postBuild:
     substitute:
       CLUSTER_NAME: dev
