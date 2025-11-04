@@ -77,15 +77,18 @@ spec:
     kind: GitRepository
     name: flux-system
     namespace: flux-system
+  kubeConfig:
+    configMapRef:
+      name: kubeconfig
   patches:
     - target:
         kind: HelmRelease
       patch: |
-        - op: add
-          path: /spec/kubeConfig
-          value:
-            configMapRef:
-              name: kubeconfig
+        #- op: add
+        #  path: /spec/kubeConfig
+        #  value:
+        #    configMapRef:
+        #      name: kubeconfig
         #- op: add
         #  path: /spec/serviceAccountName
         #  value: flux-restricted
