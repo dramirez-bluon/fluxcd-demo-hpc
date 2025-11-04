@@ -79,7 +79,7 @@ metadata:
 spec:
   dependsOn:
     - name: app-config
-  targetNamespace: dev
+  targetNamespace: cpa
   interval: 1h
   retryInterval: 3m
   timeout: 5m
