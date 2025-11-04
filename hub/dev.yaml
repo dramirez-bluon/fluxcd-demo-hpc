@@ -67,6 +67,9 @@ spec:
         - op: add
           path: /spec/serviceAccountName
           value: flux-cluster-admin
+  postBuild:
+    substitute:
+      APP_CODE: cpa
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
