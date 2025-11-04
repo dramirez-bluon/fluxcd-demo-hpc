@@ -86,6 +86,6 @@ spec:
           value:
             configMapRef:
               name: kubeconfig
-        - op: add
-          path: /spec/serviceAccountName
-          value: flux-restricted
+        #- op: add
+        #  path: /spec/serviceAccountName
+        #  value: flux-restricted
