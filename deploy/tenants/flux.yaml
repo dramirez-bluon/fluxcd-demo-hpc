@@ -4,7 +4,7 @@ metadata:
   labels:
     toolkit.fluxcd.io/tenant: sre-team
   name: flux-cluster-admin
-  namespace: "fluxcd"
+  namespace: "flux-system"
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
@@ -19,4 +19,4 @@ roleRef:
 subjects:
   - kind: ServiceAccount
     name: flux-cluster-admin
-    namespace: "fluxcd"
+    namespace: "flux-system"
