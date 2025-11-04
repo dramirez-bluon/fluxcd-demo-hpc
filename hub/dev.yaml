@@ -55,18 +55,10 @@ spec:
     kind: GitRepository
     name: flux-system
     namespace: flux-system
-  patches:
-    - target:
-        kind: HelmRelease
-      patch: |
-        - op: add
-          path: /spec/kubeConfig
-          value:
-            secretRef:
-              name: cluster-kubeconfig
-        - op: add
-          path: /spec/serviceAccountName
-          value: flux-cluster-admin
+  kubeConfig:
+    configMapRef:
+      name: kubeconfig
+  serviceAccountName: flux-cluster-admin
   postBuild:
     substitute:
       APP_CODE: cpa
