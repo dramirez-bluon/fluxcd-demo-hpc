@@ -58,7 +58,6 @@ spec:
   kubeConfig:
     configMapRef:
       name: kubeconfig
-  serviceAccountName: flux-cluster-admin
   postBuild:
     substitute:
       APP_CODE: cpa
